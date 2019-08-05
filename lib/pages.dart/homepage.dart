@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+
 import 'package:flutter_app_whatsup/pages.dart/callsScreen.dart';
 
 import 'package:flutter_app_whatsup/pages.dart/cameraScreen.dart';
@@ -8,6 +10,7 @@ import 'package:flutter_app_whatsup/pages.dart/chatScreen.dart';
 
 import 'package:flutter_app_whatsup/pages.dart/statusScreen.dart';
 
+import 'package:flutter_app_whatsup/models/menuVertical.dart';
 
 
 
@@ -69,11 +72,50 @@ class _HomePageState extends State<HomePage>
 
       appBar: AppBar(
 
-        title: new Text(
-          
-          'WhatsApp',
 
-        ),
+        title: new Text('WhatsApp'),
+
+
+        actions: <Widget>[
+
+
+          IconButton(
+
+            icon: Icon(
+              
+              Icons.search,
+
+            ),
+
+            onPressed: (){
+
+              //
+
+            },
+
+          ),
+
+
+
+          IconButton(
+
+            icon: Icon(
+              
+              Icons.more_vert,
+
+            ),
+
+            onPressed: () => _popUp(),
+
+          
+
+          )
+
+          
+
+        ],
+
+        
 
         elevation: 0.7,
 
@@ -163,21 +205,6 @@ class _HomePageState extends State<HomePage>
         ),
 
 
-        actions: <Widget>[
-
-          Icon(Icons.search),
-
-          Padding(
-
-          padding: EdgeInsets.symmetric(horizontal: 8.0),
-
-          ),
-
-          Icon(Icons.more_vert),
-
-        ],
-
-
       ),
 
       //-----APP BAR ENDS----
@@ -209,6 +236,8 @@ class _HomePageState extends State<HomePage>
       ),
 
 
+
+
       floatingActionButton: FloatingActionButton(
 
         backgroundColor: Theme.of(context).accentColor,
@@ -222,7 +251,6 @@ class _HomePageState extends State<HomePage>
         ),
 
 
-
         onPressed: (){
 
           //
@@ -232,6 +260,32 @@ class _HomePageState extends State<HomePage>
       ),
 
       
+    );
+
+  }
+
+
+   //Here Declaring '_showDialog'
+  void _popUp() {
+
+    showDialog(
+
+      context: context,
+
+      builder: (BuildContext context){
+
+        return AlertDialog(
+
+
+          //Here 'AlerMessage()' Class called
+          title: PopUpList(),
+
+          
+
+        );
+
+      }
+
     );
 
   }
